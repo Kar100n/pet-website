@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/contact-us.html');
 });
 
-router.post('/submit', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { name, email, message } = req.body;
         const newContactUsEntry = new ContactUs({ name, email, message });

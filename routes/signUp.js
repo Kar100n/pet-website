@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { username, name, email, password } = req.body;
 
         // For simplicity, we're assuming unique email addresses for each user
         const existingUser = await User.findOne({ email });
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
         }
 
         // Create a new user
-        const newUser = new User({ name, email, password });
+        const newUser = new User({ username, name, email, password });
         await newUser.save();
 
         res.send('Account created successfully!');

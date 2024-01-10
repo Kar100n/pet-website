@@ -2,19 +2,22 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-router.get('/', (req, res) => {
-    res.sendFile(__dirname + '/../public/login.html');
-});
-
 router.post('/', async (req, res) => {
     try {
         const { username, password } = req.body;
-        // You would typically validate the username and password against the database here
-        // For simplicity, let's assume a user with username "admin" and password "password" is valid
-        if (username === 'admin' && password === 'password') {
-            res.send('Login successful!');
+
+        // Check if a user with the provided username exists
+        const user = await User.findOne({ username });
+
+        if (user) {
+            // Check if the provided password matches the stored hashed password
+            if (user.password === password) {
+                res.send('Login successful!');
+            } else {
+                res.status(401).send('Invalid password');
+            }
         } else {
-            res.status(401).send('Invalid credentials');
+            res.status(401).send('User not found');
         }
     } catch (error) {
         console.error(error);
