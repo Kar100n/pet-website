@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('bgimg.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    background-color: rgba(52, 152, 219, 0.5); 
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+
+
+nav {
+    background-color: rgba(44, 62, 80, 0.8);
+    color: #fff;
+    text-align: center;
+}
+
+
+nav {
+    background-color: #49723e;
+    color: #fff;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.main-content {
+    padding: 20px;
+    text-align: center; /* Center the content */
+}
+
+footer {
+    background-color: #34495e;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed; /* Fix the position at the bottom */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom */
+    font-size: 18px; /* Increase font size */
+}
+
+@media screen and (max-width: 600px) {
+    nav ul {
+        display: block;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    footer {
+        position: static; /* Reset position for smaller screens */
+        width: auto; /* Reset width */
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+
