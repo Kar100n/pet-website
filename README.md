@@ -27,7 +27,12 @@ Welcome to Pet Paradise, a delightful website showcasing adorable pets available
 Make sure you have the following installed on your machine:
 
 - Node.js
+  - npm install express
+  - npm install mongoose
+  - npm install body-parser
+  - npm install express-session
 - MongoDB
+  
 
 ## Installation
 
@@ -110,6 +115,5 @@ Contributions are welcome! Fork the repository, create a branch, commit your cha
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
 
-This version includes a new section on deploying the application on an AWS EC2 instance with an Elastic IP. Adjust the placeholders like `your-key.pem` and `your-elastic-ip` with your actual key file and Elastic IP address.
+Feel free to customize the instructions and details further based on your project's specific needs!
