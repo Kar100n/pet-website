@@ -10,7 +10,7 @@ Welcome to Pet Paradise, a delightful website showcasing adorable pets available
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
-- [Running the Application](#running-the-application)
+- [Deploying on AWS EC2](#deploying-on-aws-ec2)
 - [File Structure](#file-structure)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -60,15 +60,36 @@ Make sure you have the following installed on your machine:
    PORT=3000
    ```
 
-## Running the Application
+## Deploying on AWS EC2
 
-Start the server:
+1. Launch an EC2 instance and associate it with an Elastic IP.
 
-```bash
-npm start
-```
+2. SSH into your EC2 instance:
 
-Visit [http://localhost:3000](http://localhost:3000) in your web browser.
+   ```bash
+   ssh -i your-key.pem ec2-user@your-elastic-ip
+   ```
+
+3. Clone your repository on the EC2 instance:
+
+   ```bash
+   git clone https://github.com/your-username/pet-paradise.git
+   ```
+
+4. Navigate to the project directory and install dependencies:
+
+   ```bash
+   cd pet-paradise
+   npm install
+   ```
+
+5. Start the application:
+
+   ```bash
+   npm start
+   ```
+
+   Visit [http://your-elastic-ip:3000](http://your-elastic-ip:3000) in your web browser.
 
 ## File Structure
 
@@ -91,4 +112,4 @@ Contributions are welcome! Fork the repository, create a branch, commit your cha
 This project is licensed under the [MIT License](LICENSE).
 ```
 
-Feel free to customize this template according to the specific details and features of your project. If you have more specific information to include, you can expand on each section accordingly.
+This version includes a new section on deploying the application on an AWS EC2 instance with an Elastic IP. Adjust the placeholders like `your-key.pem` and `your-elastic-ip` with your actual key file and Elastic IP address.
