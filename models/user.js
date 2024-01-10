@@ -5,6 +5,13 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
 }, { timestamps: true });
 
+// Adding a static method to the schema to authenticate users
+userSchema.statics.authenticate = async function (username, password) {
+    const user = await this.findOne({ username, password });
+
+    return user;
+};
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

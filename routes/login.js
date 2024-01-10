@@ -2,22 +2,24 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
+router.get('/', (req, res) => {
+    res.sendFile(__dirname + '/../public/login.html');
+});
+
 router.post('/', async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // Check if a user with the provided username exists
-        const user = await User.findOne({ username });
+        // Assume User model has a method for authentication
+        const user = await User.authenticate(username, password);
 
         if (user) {
-            // Check if the provided password matches the stored hashed password
-            if (user.password === password) {
-                res.send('Login successful!');
-            } else {
-                res.status(401).send('Invalid password');
-            }
+            // Create a session for the user
+            req.session.userId = user._id;
+
+            res.redirect('/main'); // Redirect to the main page after login
         } else {
-            res.status(401).send('User not found');
+            res.status(401).send('Invalid credentials');
         }
     } catch (error) {
         console.error(error);
